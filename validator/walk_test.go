@@ -3,9 +3,9 @@ package validator
 import (
 	"testing"
 
+	"github.com/beyondan/gqlparser/v2/ast"
+	"github.com/beyondan/gqlparser/v2/parser"
 	"github.com/stretchr/testify/require"
-	"github.com/vektah/gqlparser/v2/ast"
-	"github.com/vektah/gqlparser/v2/parser"
 )
 
 func TestWalker(t *testing.T) {

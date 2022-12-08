@@ -3,7 +3,7 @@ package lexer
 import (
 	"strconv"
 
-	"github.com/vektah/gqlparser/v2/ast"
+	"github.com/beyondan/gqlparser/v2/ast"
 )
 
 const (

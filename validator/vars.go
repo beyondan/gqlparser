@@ -6,8 +6,8 @@ import (
 
 	"fmt"
 
-	"github.com/vektah/gqlparser/v2/ast"
-	"github.com/vektah/gqlparser/v2/gqlerror"
+	"github.com/beyondan/gqlparser/v2/ast"
+	"github.com/beyondan/gqlparser/v2/gqlerror"
 )
 
 var UnexpectedType = fmt.Errorf("Unexpected Type")

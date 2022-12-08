@@ -3,9 +3,9 @@ package parser
 import (
 	"strconv"
 
-	"github.com/vektah/gqlparser/v2/ast"
-	"github.com/vektah/gqlparser/v2/gqlerror"
-	"github.com/vektah/gqlparser/v2/lexer"
+	"github.com/beyondan/gqlparser/v2/ast"
+	"github.com/beyondan/gqlparser/v2/gqlerror"
+	"github.com/beyondan/gqlparser/v2/lexer"
 )
 
 type parser struct {
@@ -81,18 +81,20 @@ func (p *parser) expect(kind lexer.Type) lexer.Token {
 	return tok
 }
 
-func (p *parser) skip(kind lexer.Type) bool {
+func (p *parser) skip(kinds ...lexer.Type) bool {
 	if p.err != nil {
 		return false
 	}
 
 	tok := p.peek()
 
-	if tok.Kind != kind {
-		return false
+	for _, kind := range kinds {
+		if tok.Kind != kind {
+			p.next()
+			return true
+		}
 	}
-	p.next()
-	return true
+	return false
 }
 
 func (p *parser) unexpectedError() {

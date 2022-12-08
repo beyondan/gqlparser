@@ -3,11 +3,11 @@ package validator_test
 import (
 	"testing"
 
+	"github.com/beyondan/gqlparser/v2"
+	"github.com/beyondan/gqlparser/v2/ast"
+	"github.com/beyondan/gqlparser/v2/parser"
+	"github.com/beyondan/gqlparser/v2/validator"
 	"github.com/stretchr/testify/require"
-	"github.com/vektah/gqlparser/v2"
-	"github.com/vektah/gqlparser/v2/ast"
-	"github.com/vektah/gqlparser/v2/parser"
-	"github.com/vektah/gqlparser/v2/validator"
 )
 
 func TestExtendingNonExistantTypes(t *testing.T) {

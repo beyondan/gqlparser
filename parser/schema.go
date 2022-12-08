@@ -1,9 +1,9 @@
 package parser
 
 import (
-	. "github.com/vektah/gqlparser/v2/ast"
-	"github.com/vektah/gqlparser/v2/gqlerror"
-	"github.com/vektah/gqlparser/v2/lexer"
+	. "github.com/beyondan/gqlparser/v2/ast"
+	"github.com/beyondan/gqlparser/v2/gqlerror"
+	"github.com/beyondan/gqlparser/v2/lexer"
 )
 
 func ParseSchema(source *Source) (*SchemaDocument, *gqlerror.Error) {
@@ -166,10 +166,10 @@ func (p *parser) parseImplementsInterfaces() []string {
 	if p.peek().Value == "implements" {
 		p.next()
 		// optional leading ampersand
-		p.skip(lexer.Amp)
+		p.skip(lexer.Amp, lexer.Colon)
 
 		types = append(types, p.parseName())
-		for p.skip(lexer.Amp) && p.err == nil {
+		for p.skip(lexer.Amp, lexer.Colon) && p.err == nil {
 			types = append(types, p.parseName())
 		}
 	}
