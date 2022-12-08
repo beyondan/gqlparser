@@ -89,7 +89,7 @@ func (p *parser) skip(kinds ...lexer.Type) bool {
 	tok := p.peek()
 
 	for _, kind := range kinds {
-		if tok.Kind != kind {
+		if tok.Kind == kind {
 			p.next()
 			return true
 		}
