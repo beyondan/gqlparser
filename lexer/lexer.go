@@ -104,6 +104,8 @@ func (s *Lexer) ReadToken() (token Token, err *gqlerror.Error) {
 			s.endRunes += 2
 			return s.makeValueToken(Spread, "")
 		}
+	case ',':
+		return s.makeValueToken(Comma, "")
 	case ':':
 		return s.makeValueToken(Colon, "")
 	case '=':

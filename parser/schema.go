@@ -166,10 +166,9 @@ func (p *parser) parseImplementsInterfaces() []string {
 	if p.peek().Value == "implements" {
 		p.next()
 		// optional leading ampersand
-		p.skip(lexer.Amp, lexer.Colon)
-
+		p.skip(lexer.Amp, lexer.Comma)
 		types = append(types, p.parseName())
-		for p.skip(lexer.Amp, lexer.Colon) && p.err == nil {
+		for p.skip(lexer.Amp, lexer.Comma) && p.err == nil {
 			types = append(types, p.parseName())
 		}
 	}

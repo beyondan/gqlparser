@@ -29,6 +29,7 @@ const (
 	String
 	BlockString
 	Comment
+	Comma
 )
 
 func (t Type) Name() string {
@@ -39,6 +40,8 @@ func (t Type) Name() string {
 		return "EOF"
 	case Bang:
 		return "Bang"
+	case Comma:
+		return "Comma"
 	case Dollar:
 		return "Dollar"
 	case Amp:
@@ -99,6 +102,8 @@ func (t Type) String() string {
 		return ")"
 	case Spread:
 		return "..."
+	case Comma:
+		return ","
 	case Colon:
 		return ":"
 	case Equals:
